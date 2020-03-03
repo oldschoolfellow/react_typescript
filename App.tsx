@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import env from 'react-native-config';
+
 declare var global: {HermesInternal: null | {}};
 
 const App = () => {
@@ -66,6 +68,9 @@ const App = () => {
               <Text style={styles.sectionDescription}>
                 Read the docs to discover what to do next:
               </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Env: {env.ENV_NAME}</Text>
             </View>
           </View>
         </ScrollView>
