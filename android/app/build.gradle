@@ -1,4 +1,6 @@
 apply plugin: "com.android.application"
+
+
 import com.android.build.OutputFile
 
 project.ext.envConfigFiles = [
@@ -87,6 +89,10 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+// react-native code-push
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
+//
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -160,6 +166,8 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            // resValue "string", "CodePushDeploymentKey", '"f-n6J6pzPm8PM-yGTNSoCkYDdF5qJG6WJhQ8M"'
+
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -167,6 +175,8 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // resValue "string", "CodePushDeploymentKey", '"f-n6J6pzPm8PM-yGTNSoCkYDdF5qJG6WJhQ8M"'
+
         }
     }
     // applicationVariants are e.g. debug, release

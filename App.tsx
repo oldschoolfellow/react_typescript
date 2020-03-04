@@ -26,7 +26,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import env from 'react-native-config';
-
+import codePush from 'react-native-code-push'
 declare var global: {HermesInternal: null | {}};
 
 const App = () => {
@@ -118,4 +118,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+const codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
+};
+
+export default codePush(codePushOptions)(App);
